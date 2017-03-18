@@ -16,8 +16,9 @@ package dungeonGameFiles;
  */
 
 
-public abstract class Monster extends DungeonCharacter
+public class Monster extends DungeonCharacter
 {
+	String toPrint;
 	private double chanceToHeal;
 	private int minHeal, maxHeal;
 
@@ -25,12 +26,13 @@ public abstract class Monster extends DungeonCharacter
   public Monster(String name, int hitPoints, int attackSpeed,
 				     double chanceToHit, double chanceToHeal,
 					 int damageMin, int damageMax,
-					 int minHeal, int maxHeal)
+					 int minHeal, int maxHeal, String toPrint)
   {
 	super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
 	this.chanceToHeal = chanceToHeal;
 	this.maxHeal = maxHeal;
 	this.minHeal = minHeal;
+	this.toPrint = toPrint;
 
   }//end monster constructor
 
@@ -62,5 +64,11 @@ public abstract class Monster extends DungeonCharacter
 
  }//end method
 
+ public void attack(DungeonCharacter opponent){
+		System.out.println(getName() + " " + (toPrint) + " " +
+							opponent.getName() + ":");
+		super.attack(opponent);
+
+	}//end override of attack
 
 }//end Monster class

@@ -34,7 +34,7 @@ package dungeonGameFiles;
  */
 
 
-public abstract class Hero extends DungeonCharacter
+public class Hero extends DungeonCharacter
 {
 	private double chanceToBlock;
 	private int numTurns;
