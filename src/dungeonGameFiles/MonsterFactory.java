@@ -19,6 +19,10 @@ public class MonsterFactory {
 			case 2: return new Monster("Gnarltooth the Gremlin", 70, 5, .8, .4, 15, 30, 20, 40, "slowly swings a club towards");	//Gremlin
 
 			case 3: return new Monster("Sargath the Skeleton", 100, 3, .8, .3, 30, 50, 30, 50, "slices his rusty blade at");		//Skeleton
+			
+			case 4: return new Monster("FrankenSTEINER", 60, 7, .7, 20, 50, 70, 5, 20, "assigns homework due in one hour");
+			
+			case 5: return new Monster("CS Grader", 100, 4, .6, .2, 30, 80, 10, 60, "finds minor error");
 
 			default: System.out.println("invalid choice, returning Gremlin");
 				     return new Monster("Gnarltooth the Gremlin", 70, 5, .8, .4, 15, 30, 20, 40, "slowly swings a club towards");	//Gremlin
