@@ -18,7 +18,7 @@ package dungeonGameFiles;
 
 public class Monster extends DungeonCharacter
 {
-	String toPrint;
+	private String toPrint;
 	private double chanceToHeal;
 	private int minHeal, maxHeal;
 
