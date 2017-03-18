@@ -10,6 +10,8 @@ public class AttackManager
 		attacks.put("suprise", new SupriseAttack());
 		attacks.put("crushing", new CrushingBlow());
 		attacks.put("heal", new HealCharacter());
+		attacks.put("capaul", new CapaulAttack());
+		attacks.put("peter", new PeterAttack());
 	}
 	
 	public static AttackInterface getRegular()
@@ -36,6 +38,18 @@ public class AttackManager
 		if (attacks.size() == 0)
 			createMap();
 		return attacks.get("Heal");
+	}
+	public static AttackInterface getCapaul()
+	{
+		if (attacks.size() == 0)
+			createMap();
+		return attacks.get("capaul");
+	}
+	public static AttackInterface getPeter()
+	{
+		if (attacks.size() == 0)
+			createMap();
+		return attacks.get("peter");
 	}
 
 }

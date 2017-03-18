@@ -38,15 +38,16 @@ public class Hero extends DungeonCharacter
 {
 	private double chanceToBlock;
 	private int numTurns;
-
+	private AttackInterface specialAttack;
 //-----------------------------------------------------------------
 //calls base constructor and gets name of hero from user
   public Hero(String name, int hitPoints, int attackSpeed,
-				     double chanceToHit, int damageMin, int damageMax,
-					 double chanceToBlock)
+				     double chanceToHit, int damageMin, int damageMax, String toPrint,
+					 double chanceToBlock, AttackInterface specialAttack)
   {
-	super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
+	super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, toPrint);
 	this.chanceToBlock = chanceToBlock;
+	this.specialAttack = specialAttack;
 	readName();
   }
 
@@ -120,13 +121,40 @@ This method is called by: external sources
 ---------------------------------------------------------*/
 	public void battleChoices(DungeonCharacter opponent)
 	{
-	    numTurns = getAttackSpeed()/opponent.getAttackSpeed();
+		int choice;
+		
+		numTurns = getAttackSpeed()/opponent.getAttackSpeed();
 
 		if (numTurns == 0)
 			numTurns++;
 
 		System.out.println("Number of turns this round is: " + numTurns);
+		
+		do
+		{
+		    System.out.println("1. Attack Opponent");
+		    System.out.println("2. "+ specialAttack +" on Opponent");
+		    System.out.print("Choose an option: ");
+		    choice = Keyboard.readInt();
 
+		    switch (choice)
+		    {
+			    case 1: attack(opponent);
+			        break;
+			    case 2: specialAttack(opponent);
+			        break;
+			    default:
+			        System.out.println("invalid choice!");
+		    }//end switch
+
+			numTurns--;
+			if (numTurns > 0)
+			    System.out.println("Number of turns remaining is: " + numTurns);
+
+		} while(numTurns > 0);
+
+		
+		
 	}//end battleChoices
 	
 	public void incrementTurns(){
@@ -144,5 +172,11 @@ This method is called by: external sources
 	public int getTurns(){
 		return this.numTurns;
 	}
+	
+	public void specialAttack(DungeonCharacter opponent)
+	{
+		specialAttack.Attack(this, opponent);
+	}
+	
 
 }//end Hero class

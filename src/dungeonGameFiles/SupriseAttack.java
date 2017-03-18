@@ -22,5 +22,10 @@ public class SupriseAttack implements AttackInterface
 		else
 			attack.Attack(attacker, defender);
 	}
+	
+	public String toString()
+	{
+		return "Suprise Attack";
+	}
 
 }

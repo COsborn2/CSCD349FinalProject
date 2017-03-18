@@ -18,7 +18,6 @@ package dungeonGameFiles;
 
 public class Monster extends DungeonCharacter
 {
-	private String toPrint;
 	private double chanceToHeal;
 	private int minHeal, maxHeal;
 
@@ -28,11 +27,10 @@ public class Monster extends DungeonCharacter
 					 int damageMin, int damageMax,
 					 int minHeal, int maxHeal, String toPrint)
   {
-	super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
+	super(name, hitPoints, attackSpeed,chanceToHit, damageMin, damageMax, toPrint);
 	this.chanceToHeal = chanceToHeal;
 	this.maxHeal = maxHeal;
 	this.minHeal = minHeal;
-	this.toPrint = toPrint;
 
   }//end monster constructor
 

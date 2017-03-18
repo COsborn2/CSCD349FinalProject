@@ -18,5 +18,10 @@ public class HealCharacter implements AttackInterface {
 		 System.out.println();
 
 	}
+	
+	public String toString()
+	{
+		return "Heal";
+	}
 
 }
