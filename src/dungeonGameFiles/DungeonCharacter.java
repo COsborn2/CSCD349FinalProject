@@ -89,6 +89,21 @@ public abstract class DungeonCharacter implements Comparable
 	{
 		return attackSpeed;
 	}//end getAttackSpeed
+   
+   public double getChanceToHit()
+   {
+      return chanceToHit;
+   }
+   
+   public int getDamageMin()
+   {
+      return damageMin;
+   }
+   
+   public int getDamageMax()
+   {
+      return damageMax;
+   }
 
 
 /*-------------------------------------------------------
