@@ -3,7 +3,7 @@ public class RegularAttack implements AttackInterface
 {
    public void Attack(DungeonCharacter attacker, DungeonCharacter defender)
    {
-      System.out.println(attacker.getName() + " swings a mighty sword at " + defender.getName() + ":");
+      System.out.println(attacker.getName() + " attacks " + defender.getName() + ":");
       boolean canAttack;
 		int damage;
 
