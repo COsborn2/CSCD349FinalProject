@@ -65,9 +65,8 @@ public class Monster extends DungeonCharacter
  }//end method
 
  public void attack(DungeonCharacter opponent){
-		System.out.println(getName() + " " + (toPrint) + " " +
-							opponent.getName() + ":");
-		super.attack(opponent);
+
+		AttackManager.getRegular().Attack(this, opponent);
 
 	}//end override of attack
 
