@@ -16,6 +16,8 @@ public class GameLogic {
 		this.initHeros = theHeros;
 		this.theMonsters = theMonsters;
 		this.initMonsters = theMonsters;
+		this.deadHeros = new ArrayList<Hero>();
+		this.deadMonsters = new ArrayList<Monster>();
 	}
 	
 	public void setHeros(Hero[] newHeros){
@@ -50,6 +52,21 @@ public class GameLogic {
 		
 		Hero[] livingHeros = new Hero[heroCount];
 		Monster[] livingMonsters = new Monster[monsterCount];
+		
+		for(int i = 0; i < this.theHeros.length; i++){
+			if(!theHeros[i].isAlive())
+				this.deadHeros.add(theHeros[i]);
+		}
+		
+		for(int i = 0; i < this.theMonsters.length; i++){
+			if(!theMonsters[i].isAlive())
+				this.deadMonsters.add(theMonsters[i]);
+		}
+		
+		for(int i = 0; i < this.theMonsters.length; i++){
+			if(!theMonsters[i].isAlive())
+				this.deadMonsters.add(theMonsters[i]);
+		}
 		
 		int count = 0;
 		for(int i = 0; i < this.theHeros.length; i++){
@@ -128,8 +145,22 @@ public class GameLogic {
 	}
 	
 	public void printInfoAboutHeros(){
+		bringOutYourDead();
 		for(int i = 0; i < this.theHeros.length; i++){
-			System.out.println(theHeros[i].getName() + " is still alive and has " + theHeros[i].getHitPoints());
+			System.out.println(theHeros[i].getName() + " is still alive and has " + theHeros[i].getHitPoints() + " hitpoints.");
 		}
+		if(this.deadHeros != null)
+			for(Hero RIP : this.deadHeros)
+			System.out.println(RIP.getName() + " was killed in battle!");
+	}
+	
+	public void printInfoAboutMonsters(){
+		bringOutYourDead();
+		for(int i = 0; i < this.theMonsters.length; i++){
+			System.out.println(theMonsters[i].getName() + " is still alive and has " + theMonsters[i].getHitPoints()+ " hitpoints.");
+		}
+		if(this.deadMonsters != null)
+			for(Monster RIP : this.deadMonsters)
+			System.out.println(RIP.getName() + " was slain in battle!");
 	}
 }

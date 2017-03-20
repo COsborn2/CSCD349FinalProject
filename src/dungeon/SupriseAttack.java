@@ -29,7 +29,7 @@ public class SupriseAttack implements AttackInterface
 	
 	public String toString()
 	{
-		return "Suprise Attack";
+		return "Suprise Attack on opponent";
 	}
 
 }

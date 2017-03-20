@@ -27,7 +27,7 @@ public class PeterAttack implements AttackInterface {
 	
 	public String toString()
 	{
-		return "Peter Attack";
+		return "Tell Story";
 	}
 
 }

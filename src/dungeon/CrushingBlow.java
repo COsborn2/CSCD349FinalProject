@@ -27,7 +27,7 @@ public class CrushingBlow implements AttackInterface {
 	
 	public String toString()
 	{
-		return "Crushing Blow";
+		return "Crushing Blow on opponent";
 	}
 
 }

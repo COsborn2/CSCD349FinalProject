@@ -30,7 +30,7 @@ public class CapaulAttack implements AttackInterface {
 	
 	public String toString()
 	{
-		return "Capaul Attack";
+		return "Heal self";
 	}
 
 }

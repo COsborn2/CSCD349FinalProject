@@ -132,7 +132,7 @@ This method is called by: external sources
 		do
 		{
 		    System.out.println("1. Attack Opponent");
-		    System.out.println("2. "+ specialAttack +" on Opponent");
+		    System.out.println("2. "+ specialAttack);
 		    System.out.print("Choose an option: ");
 		    choice = Keyboard.readInt();
 

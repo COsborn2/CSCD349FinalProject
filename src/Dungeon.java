@@ -125,6 +125,7 @@ user has the option of quitting.
 			
 		    //heros go first
 			for(int i = 0; i < curHeros.length; i++){
+				gl.printInfoAboutHeros();
 				if(gl.firstMonsterAlive() > -1){
 					System.out.println(curHeros[i].getName() + " is attacking!");
 					curHeros[i].battleChoices(curMonsters[gl.firstMonsterAlive()]);
@@ -144,6 +145,7 @@ user has the option of quitting.
 			curMonsters = gl.getMonsters();
 			
 			for(int i = 0; i < curMonsters.length; i++){
+				gl.printInfoAboutMonsters();
 				if(gl.firstHeroAlive() > -1)
 					curMonsters[i].attack(curHeros[gl.firstHeroAlive()]);
 				else{
