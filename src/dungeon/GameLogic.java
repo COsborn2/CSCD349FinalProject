@@ -25,12 +25,36 @@ public class GameLogic implements Serializable{
 		this.deadMonsters = new ArrayList<Monster>();
 	}
 	
-	public void save(){
-		
+	public void save() throws IOException{
+		FileOutputStream fout = new FileOutputStream(Long.toString(serialVersionUID));
+		ObjectOutputStream objout = new ObjectOutputStream(fout);
+		objout.writeObject(this);
 	}
 	
-	public void load(){
+	public void load() throws IOException, ClassNotFoundException{
+		FileInputStream fin = new FileInputStream(Long.toString(serialVersionUID));
+		ObjectInputStream objin = new ObjectInputStream(fin);
+		Object obj = objin.readObject();
 		
+		if(obj instanceof GameLogic){
+			GameLogic loadState = (GameLogic) obj;
+			Hero[] heros = loadState.getHeros();
+			Hero[] oldHeros = loadState.getInitHeros();
+			ArrayList<Hero> fallenHeros = loadState.getDeadHeros();
+			Monster[] monsters = loadState.getMonsters();
+			Monster[] oldMonsters = loadState.getInitMonsters();
+			ArrayList<Monster> fallenMonsters = loadState.getDeadMonsters();
+			this.initializeGameLogic(heros, oldHeros, fallenHeros, monsters, oldMonsters, fallenMonsters);
+		}
+	}
+	
+	public void initializeGameLogic(Hero[] heros, Hero[] oldHeros, ArrayList<Hero> fallenHeros, Monster[] monsters, Monster[] oldMonsters, ArrayList<Monster> fallenMonsters){
+		this.theHeros = heros;
+		this.initHeros = oldHeros;
+		this.deadHeros = fallenHeros;
+		this.theMonsters = monsters;
+		this.initMonsters = oldMonsters;
+		this.deadMonsters = fallenMonsters;
 	}
 	
 	public void setHeros(Hero[] newHeros){
@@ -50,13 +74,21 @@ public class GameLogic implements Serializable{
 		return this.initHeros;
 	}
 	
-	public Monster[] getInitMonsters(){
-		return this.initMonsters;
+	public ArrayList<Hero> getDeadHeros(){
+		return this.deadHeros;
 	}
 	
 	public Monster[] getMonsters(){
 		bringOutYourDead();
 		return this.theMonsters;
+	}
+	
+	public Monster[] getInitMonsters(){
+		return this.initMonsters;
+	}
+	
+	public ArrayList<Monster> getDeadMonsters(){
+		return this.deadMonsters;
 	}
 	
 	public void bringOutYourDead(){
