@@ -175,10 +175,7 @@ user has the option of quitting.
 
 			//let the player bail out if desired
 			if(gl.areAnyHerosAlive() && gl.areAnyMonstersAlive()){
-				System.out.println("BATTLE UPDATE");
-				gl.printInfoAboutHeros();
-				gl.printInfoAboutMonsters();
-				System.out.println("-------------------------------------");
+				
 				System.out.print("\n-->q to quit, -->s to save and quit, anything else to continue: ");
 				pause = Keyboard.readChar();
 				if(pause == 's'){
@@ -188,21 +185,15 @@ user has the option of quitting.
 				}
 			}
 
-		}//end battle loop
+		}//end battle loop. Breaks if all Heros are dead OR all Monsters are dead OR user requests a quit or save and quit
 
 		//Determine which heros and monsters are alive
 		if (gl.areAnyMonstersAlive()){
-		    Monster[] startingMonsters = gl.getInitMonsters();
-		    for(int i = 0; i < startingMonsters.length; i++){
-		    	System.out.println(startingMonsters[i].getName());
-		    }
+		    gl.printInitialMonsters();
 		    System.out.println("were victorious!");
 		}
 		else if (gl.areAnyHerosAlive()){
-			Hero[] startingHeros = gl.getInitHeros();
-		    for(int i = 0; i < startingHeros.length; i++){
-		    	System.out.println(startingHeros[i].getName());
-		    }
+			gl.printInitialHeros();
 		    System.out.println("were victorious!");
 		}
 		else//both are alive so user quit the game

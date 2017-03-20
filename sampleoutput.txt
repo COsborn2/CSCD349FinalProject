@@ -1,0 +1,249 @@
+Welcome to Monsters and Heros!
+Enter 'l' to load game, anything else to start a new game: a
+Select the number of Heros (1-5): 3
+Choose a hero:
+1. Warrior
+2. Sorceress
+3. Thief 
+4. Capaulasourous 
+5. Pimp Daddy Peters
+1
+Enter character name: Warrior
+Choose a hero:
+1. Warrior
+2. Sorceress
+3. Thief 
+4. Capaulasourous 
+5. Pimp Daddy Peters
+4
+Enter character name: Capaul
+Choose a hero:
+1. Warrior
+2. Sorceress
+3. Thief 
+4. Capaulasourous 
+5. Pimp Daddy Peters
+5
+Enter character name: Pete
+Warrior is still alive and has 125 hitpoints.
+Capaul is still alive and has 100 hitpoints.
+Pete is still alive and has 40 hitpoints.
+
+are battling
+CS Grader is still alive and has 100 hitpoints.
+Oscar the Ogre is still alive and has 200 hitpoints.
+Oscar the Ogre is still alive and has 200 hitpoints.
+
+---------------------------------------------
+CS Grader is still alive and has 100 hitpoints.
+Oscar the Ogre is still alive and has 200 hitpoints.
+Oscar the Ogre is still alive and has 200 hitpoints.
+
+Warrior is attacking!
+Number of turns this round is: 1
+1. Attack Opponent
+2. Crushing Blow on opponent
+Choose an option: 1
+Warrior  swings a mighty sword at  CS Grader:
+CS Grader hit  for <58> points damage.
+CS Grader now has 42 hit points remaining.
+
+
+CS Grader is still alive and has 42 hitpoints.
+Oscar the Ogre is still alive and has 200 hitpoints.
+Oscar the Ogre is still alive and has 200 hitpoints.
+
+Capaul is attacking!
+Number of turns this round is: 1
+1. Attack Opponent
+2. Heal self
+Choose an option: 1
+Capaul  throws a book at  CS Grader:
+Capaul's attack on CS Grader failed!
+
+CS Grader is still alive and has 42 hitpoints.
+Oscar the Ogre is still alive and has 200 hitpoints.
+Oscar the Ogre is still alive and has 200 hitpoints.
+
+Pete is attacking!
+Number of turns this round is: 1
+1. Attack Opponent
+2. Tell Story
+Choose an option: 1
+Pete  flashes gold chains at  CS Grader:
+Pete's attack on CS Grader failed!
+
+Warrior is still alive and has 125 hitpoints.
+Capaul is still alive and has 100 hitpoints.
+Pete is still alive and has 40 hitpoints.
+
+CS Grader finds minor error!  Warrior:
+Warrior hit  for <94> points damage.
+Warrior now has 31 hit points remaining.
+
+
+Warrior is still alive and has 31 hitpoints.
+Capaul is still alive and has 100 hitpoints.
+Pete is still alive and has 40 hitpoints.
+
+Oscar the Ogre jabs his kris at Warrior:
+Oscar the Ogre's attack on Warrior failed!
+
+Warrior is still alive and has 31 hitpoints.
+Capaul is still alive and has 100 hitpoints.
+Pete is still alive and has 40 hitpoints.
+
+Oscar the Ogre jabs his kris at Warrior:
+Warrior hit  for <47> points damage.
+Warrior now has 0 hit points remaining.
+
+Warrior has been killed :-(
+
+
+-->q to quit, -->s to save and quit, anything else to continue: a
+CS Grader is still alive and has 42 hitpoints.
+Oscar the Ogre is still alive and has 200 hitpoints.
+Oscar the Ogre is still alive and has 200 hitpoints.
+
+Capaul is attacking!
+Number of turns this round is: 1
+1. Attack Opponent
+2. Heal self
+Choose an option: 1
+Capaul  throws a book at  CS Grader:
+CS Grader hit  for <51> points damage.
+CS Grader now has 0 hit points remaining.
+
+CS Grader has been killed :-(
+
+Oscar the Ogre is still alive and has 200 hitpoints.
+Oscar the Ogre is still alive and has 200 hitpoints.
+CS Grader was slain in battle!
+
+Pete is attacking!
+Number of turns this round is: 1
+1. Attack Opponent
+2. Tell Story
+Choose an option: 1
+Pete  flashes gold chains at  CS Grader:
+CS Grader hit  for <14> points damage.
+CS Grader now has 0 hit points remaining.
+
+CS Grader has been killed :-(
+
+Capaul is still alive and has 100 hitpoints.
+Pete is still alive and has 40 hitpoints.
+Warrior was killed in battle!
+
+Oscar the Ogre jabs his kris at Capaul:
+Capaul hit  for <30> points damage.
+Capaul now has 70 hit points remaining.
+
+
+Capaul is still alive and has 70 hitpoints.
+Pete is still alive and has 40 hitpoints.
+Warrior was killed in battle!
+
+Oscar the Ogre jabs his kris at Capaul:
+Oscar the Ogre's attack on Capaul failed!
+
+
+-->q to quit, -->s to save and quit, anything else to continue: a
+Oscar the Ogre is still alive and has 200 hitpoints.
+Oscar the Ogre is still alive and has 200 hitpoints.
+CS Grader was slain in battle!
+
+Capaul is attacking!
+Number of turns this round is: 3
+1. Attack Opponent
+2. Heal self
+Choose an option: 1
+Capaul  throws a book at  Oscar the Ogre:
+Capaul's attack on Oscar the Ogre failed!
+
+Number of turns remaining is: 2
+1. Attack Opponent
+2. Heal self
+Choose an option: 1
+Capaul  throws a book at  Oscar the Ogre:
+Capaul's attack on Oscar the Ogre failed!
+
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Heal self
+Choose an option: 1
+Capaul  throws a book at  Oscar the Ogre:
+Oscar the Ogre hit  for <52> points damage.
+Oscar the Ogre now has 148 hit points remaining.
+
+
+Oscar the Ogre is still alive and has 148 hitpoints.
+Oscar the Ogre is still alive and has 200 hitpoints.
+CS Grader was slain in battle!
+
+Pete is attacking!
+Number of turns this round is: 1
+1. Attack Opponent
+2. Tell Story
+Choose an option: 2
+Pete failed to land STORY
+
+Capaul is still alive and has 70 hitpoints.
+Pete is still alive and has 40 hitpoints.
+Warrior was killed in battle!
+
+Oscar the Ogre jabs his kris at Capaul:
+Capaul hit  for <41> points damage.
+Capaul now has 29 hit points remaining.
+
+
+Capaul is still alive and has 29 hitpoints.
+Pete is still alive and has 40 hitpoints.
+Warrior was killed in battle!
+
+Oscar the Ogre jabs his kris at Capaul:
+Capaul hit  for <35> points damage.
+Capaul now has 0 hit points remaining.
+
+Capaul has been killed :-(
+
+
+-->q to quit, -->s to save and quit, anything else to continue: a
+Oscar the Ogre is still alive and has 148 hitpoints.
+Oscar the Ogre is still alive and has 200 hitpoints.
+CS Grader was slain in battle!
+
+Pete is attacking!
+Number of turns this round is: 1
+1. Attack Opponent
+2. Tell Story
+Choose an option: 1
+Pete  flashes gold chains at  Oscar the Ogre:
+Oscar the Ogre hit  for <89> points damage.
+Oscar the Ogre now has 59 hit points remaining.
+
+
+Pete is still alive and has 40 hitpoints.
+Warrior was killed in battle!
+Capaul was killed in battle!
+
+Oscar the Ogre jabs his kris at Pete:
+Pete hit  for <35> points damage.
+Pete now has 5 hit points remaining.
+
+
+Pete is still alive and has 5 hitpoints.
+Warrior was killed in battle!
+Capaul was killed in battle!
+
+Oscar the Ogre jabs his kris at Pete:
+Pete hit  for <32> points damage.
+Pete now has 0 hit points remaining.
+
+Pete has been killed :-(
+
+CS Grader
+Oscar the Ogre
+Oscar the Ogre
+were victorious!
+Play again (y/n)?

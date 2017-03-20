@@ -222,4 +222,23 @@ public class GameLogic implements java.io.Serializable{
 			}
 		System.out.println();
 	}
+	
+	public void printInitialMonsters(){
+		for(int i = 0; i < this.initMonsters.length; i++){
+			System.out.println(initMonsters[i].getName());
+		}
+	}
+	
+	public void printInitialHeros(){
+		for(int i = 0; i < this.initHeros.length; i++){
+			System.out.println(initHeros[i].getName());
+		}
+	}
+	
+	public void battleUpdate(){
+		System.out.println("BATTLE UPDATE");
+		printInfoAboutHeros();
+		printInfoAboutMonsters();
+		System.out.println("-------------------------------------");
+	}
 }

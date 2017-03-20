@@ -24,7 +24,7 @@ public class HeroFactory implements Serializable{
 			
 			case 4: return new Hero("Capaulasourous", 100, 7, .6, 20, 60, " throws a book at ", .3, AttackManager.getCapaul(20,60));
 			
-			case 5: return new Hero("Pimp Daddy Peters", 40, 2, .9, 60, 90, " flashes gold chains at ", .2, AttackManager.getPeter());
+			case 5: return new Hero("Pimp Daddy Peters", 40, 2, .9, 10, 90, " flashes gold chains at ", .2, AttackManager.getPeter());
 
 			default: System.out.println("invalid choice, returning Thief");
 					return new Hero("Thief", 75, 6, .8, 20, 40, " casts a spell of fireball at ", .5, AttackManager.getSuprise());
