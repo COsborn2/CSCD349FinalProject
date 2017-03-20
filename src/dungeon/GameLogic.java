@@ -205,8 +205,9 @@ public class GameLogic implements java.io.Serializable{
 			System.out.println(theHeros[i].getName() + " is still alive and has " + theHeros[i].getHitPoints() + " hitpoints.");
 		}
 		if(this.deadHeros != null)
-			for(Hero RIP : this.deadHeros)
-			System.out.println(RIP.getName() + " was killed in battle!");
+			for(Hero RIP : this.deadHeros){
+				System.out.println(RIP.getName() + " was killed in battle!");
+			}
 		System.out.println();
 	}
 	
@@ -216,8 +217,9 @@ public class GameLogic implements java.io.Serializable{
 			System.out.println(theMonsters[i].getName() + " is still alive and has " + theMonsters[i].getHitPoints()+ " hitpoints.");
 		}
 		if(this.deadMonsters != null)
-			for(Monster RIP : this.deadMonsters)
-			System.out.println(RIP.getName() + " was slain in battle!");
+			for(Monster RIP : this.deadMonsters){
+				System.out.println(RIP.getName() + " was slain in battle!");
+			}
 		System.out.println();
 	}
 }
