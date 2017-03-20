@@ -1,9 +1,14 @@
 package dungeon;
 
+import java.io.*;
 import java.util.ArrayList;
 
-public class GameLogic {
+public class GameLogic implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1575957538891539811L;
 	private Hero[] theHeros;
 	private Hero[] initHeros;
 	private ArrayList<Hero> deadHeros;
@@ -18,6 +23,14 @@ public class GameLogic {
 		this.initMonsters = theMonsters;
 		this.deadHeros = new ArrayList<Hero>();
 		this.deadMonsters = new ArrayList<Monster>();
+	}
+	
+	public void save(){
+		
+	}
+	
+	public void load(){
+		
 	}
 	
 	public void setHeros(Hero[] newHeros){
