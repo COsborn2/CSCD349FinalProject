@@ -106,6 +106,10 @@ public abstract class DungeonCharacter implements Comparable
    {
       return damageMax;
    }
+   
+   public String getToPrint(){
+	   return this.toPrint;
+   }
 
 
 /*-------------------------------------------------------
