@@ -63,11 +63,6 @@ public class GameLogic {
 				this.deadMonsters.add(theMonsters[i]);
 		}
 		
-		for(int i = 0; i < this.theMonsters.length; i++){
-			if(!theMonsters[i].isAlive())
-				this.deadMonsters.add(theMonsters[i]);
-		}
-		
 		int count = 0;
 		for(int i = 0; i < this.theHeros.length; i++){
 			if(theHeros[i].isAlive()){
