@@ -174,16 +174,18 @@ user has the option of quitting.
 			}//end Monster for loop
 
 			//let the player bail out if desired
-			System.out.println("BATTLE UPDATE");
-			gl.printInfoAboutHeros();
-			gl.printInfoAboutMonsters();
-			System.out.println("-------------------------------------");
-			System.out.print("\n-->q to quit, -->s to save and quit, anything else to continue: ");
-			pause = Keyboard.readChar();
-			if(pause == 's'){
-				System.out.println("Saving game!");
-				gl.save();
-				System.exit(0);
+			if(gl.areAnyHerosAlive() && gl.areAnyMonstersAlive()){
+				System.out.println("BATTLE UPDATE");
+				gl.printInfoAboutHeros();
+				gl.printInfoAboutMonsters();
+				System.out.println("-------------------------------------");
+				System.out.print("\n-->q to quit, -->s to save and quit, anything else to continue: ");
+				pause = Keyboard.readChar();
+				if(pause == 's'){
+					System.out.println("Saving game!");
+					gl.save();
+					System.exit(0);
+				}
 			}
 
 		}//end battle loop
