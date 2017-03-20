@@ -4,7 +4,7 @@
 
 package dungeon;
 
-
+import java.io.Serializable;
 
 /**
  * Title:
@@ -16,7 +16,7 @@ package dungeon;
  */
 
 
-public class Monster extends DungeonCharacter
+public class Monster extends DungeonCharacter implements Serializable
 {
 	private double chanceToHeal;
 	private int minHeal, maxHeal;

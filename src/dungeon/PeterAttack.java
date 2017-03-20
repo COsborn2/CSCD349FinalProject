@@ -4,7 +4,9 @@
 
 package dungeon;
 
-public class PeterAttack implements AttackInterface {
+import java.io.Serializable;
+
+public class PeterAttack implements AttackInterface, Serializable {
 
 	@Override
 	public void Attack(DungeonCharacter attacker, DungeonCharacter defender) 

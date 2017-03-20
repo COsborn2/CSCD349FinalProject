@@ -18,16 +18,32 @@ import dungeon.*;
 public class Dungeon
 {
 	
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
 	{
-		DungeonCharacterStore mStore = new DungeonCharacterStore();
+		System.out.println("Welcome to Monsters and Heros!");
+		System.out.print("Enter 'l' to load game, anything else to start a new game: ");
+		Character selection = Keyboard.readChar();
+		
+		if(selection == 'l'){
+			System.out.println("Loading game save!");
+			GameLogic gl = new GameLogic();
+			gl.load();
+			importBattle(gl);
+		}
+		else{
+			performBattle();
+		}
+    }//end main method
+    
+    public static void performBattle() throws Exception{
+    	DungeonCharacterStore mStore = new DungeonCharacterStore();
 
 		GameLogic gl = null;
     	Hero[] theHeros;
     	Monster[] theMonsters;
     	do
 		{
-    		System.out.print("Select the number of Heros (1-5):");
+    		System.out.print("Select the number of Heros (1-5): ");
     		int numberHeros = Keyboard.readInt();
     		theHeros = new Hero[numberHeros];
     		theMonsters = new Monster[numberHeros];
@@ -40,14 +56,13 @@ public class Dungeon
 			battle(gl);
 
 		} while (playAgain());
-
-    }//end main method
+    }
     
-    public static void importBattle(GameLogic gl){
+    public static void importBattle(GameLogic gl) throws Exception{
     	battle(gl);
     	
     	if(playAgain())
-    		main(null);
+    		performBattle();
     }
 
 /*-------------------------------------------------------------------
@@ -94,26 +109,22 @@ and a Monster to be passed in.  Battle occurs in rounds.  The Hero
 goes first, then the Monster.  At the conclusion of each round, the
 user has the option of quitting.
 ---------------------------------------------------------------------*/
-	public static void battle(GameLogic gl)
+	public static void battle(GameLogic gl) throws Exception
 	{
 		char pause = 'p';
 		
 		Hero[] curHeros = gl.getHeros();
 		Monster[] curMonsters = gl.getMonsters();
 		
-		for(int i = 0; i < curHeros.length; i++){
-			System.out.println(curHeros[i].getName());
-		}
+		gl.printInfoAboutHeros();
 		
 		System.out.println("are battling");
 		
-		for(int i = 0; i < curMonsters.length; i++){
-			System.out.println(curMonsters[i].getName());
-		}
+		gl.printInfoAboutMonsters();
 		System.out.println("---------------------------------------------");
 
 		//do battle
-		while (gl.areAnyHerosAlive() && gl.areAnyMonstersAlive() && pause != 'q')
+		while (gl.areAnyHerosAlive() && gl.areAnyMonstersAlive() && pause != 'q' && pause != 's')
 		{
 			/*
 			 * The heros are allowed to attack first, and then the monsters, provided they are alive.
@@ -159,9 +170,17 @@ user has the option of quitting.
 			}//end Monster for loop
 
 			//let the player bail out if desired
-			System.out.print("\n-->q to quit, anything else to continue: ");
+			System.out.println("BATTLE UPDATE");
+			gl.printInfoAboutHeros();
+			gl.printInfoAboutMonsters();
+			System.out.println("-------------------------------------");
+			System.out.print("\n-->q to quit, -->s to save and quit, anything else to continue: ");
 			pause = Keyboard.readChar();
-			
+			if(pause == 's'){
+				System.out.println("Saving game!");
+				gl.save();
+				System.exit(0);
+			}
 
 		}//end battle loop
 

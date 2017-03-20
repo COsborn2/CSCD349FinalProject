@@ -4,7 +4,9 @@
 
 package dungeon;
 
-public class SupriseAttack implements AttackInterface
+import java.io.Serializable;
+
+public class SupriseAttack implements AttackInterface, Serializable
 {
 	private RegularAttack attack = new RegularAttack();
 	

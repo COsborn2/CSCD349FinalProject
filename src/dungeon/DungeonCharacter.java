@@ -4,7 +4,7 @@
 
 package dungeon;
 
-
+import java.io.Serializable;
 
 /**
  * Title: DungeonCharacter.java
@@ -39,7 +39,7 @@ package dungeon;
  * @version 1.0
  */
 
-public abstract class DungeonCharacter implements Comparable
+public abstract class DungeonCharacter implements Comparable, Serializable
 {
 
 	private String name;

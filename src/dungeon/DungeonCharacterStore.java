@@ -4,8 +4,9 @@
 
 package dungeon;
 
+import java.io.Serializable;
 
-public class DungeonCharacterStore {
+public class DungeonCharacterStore implements Serializable{
 	private MonsterFactory mFact;
 	private HeroFactory hFact;
 	

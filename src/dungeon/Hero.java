@@ -4,7 +4,7 @@
 
 package dungeon;
 
-
+import java.io.Serializable;
 
 /**
  * Title: Hero.java
@@ -34,7 +34,7 @@ package dungeon;
  */
 
 
-public class Hero extends DungeonCharacter
+public class Hero extends DungeonCharacter implements Serializable
 {
 	private double chanceToBlock;
 	private int numTurns;

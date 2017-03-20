@@ -4,8 +4,9 @@
 
 package dungeon;
 
+import java.io.Serializable;
 
-public class HeroFactory {
+public class HeroFactory implements Serializable{
 
 	public DungeonCharacter spawnHero(int selection){
 		switch(selection){

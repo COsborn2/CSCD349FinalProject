@@ -3,18 +3,23 @@ package dungeon;
 import java.io.*;
 import java.util.ArrayList;
 
-public class GameLogic implements Serializable{
+public class GameLogic implements java.io.Serializable{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1575957538891539811L;
 	private Hero[] theHeros;
 	private Hero[] initHeros;
 	private ArrayList<Hero> deadHeros;
 	private Monster[] theMonsters;
 	private Monster[] initMonsters;
 	private ArrayList<Monster> deadMonsters;
+	
+	public GameLogic(){
+		this.theHeros = null;
+		this.initHeros = null;
+		this.deadHeros = null;
+		this.theMonsters = null;
+		this.initMonsters = null;
+		this.deadMonsters = null;
+	}
 	
 	public GameLogic(Hero[] theHeros, Monster[] theMonsters){
 		this.theHeros = theHeros;
@@ -25,26 +30,36 @@ public class GameLogic implements Serializable{
 		this.deadMonsters = new ArrayList<Monster>();
 	}
 	
-	public void save() throws IOException{
-		FileOutputStream fout = new FileOutputStream(Long.toString(serialVersionUID));
-		ObjectOutputStream objout = new ObjectOutputStream(fout);
-		objout.writeObject(this);
+	public void save() throws Exception{
+		try{
+			FileOutputStream fout = new FileOutputStream("save_data.txt");
+			ObjectOutputStream objout = new ObjectOutputStream(fout);
+			objout.writeObject(this);
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+			System.out.println(e.getStackTrace());
+		}
 	}
 	
-	public void load() throws IOException, ClassNotFoundException{
-		FileInputStream fin = new FileInputStream(Long.toString(serialVersionUID));
-		ObjectInputStream objin = new ObjectInputStream(fin);
-		Object obj = objin.readObject();
-		
-		if(obj instanceof GameLogic){
-			GameLogic loadState = (GameLogic) obj;
-			Hero[] heros = loadState.getHeros();
-			Hero[] oldHeros = loadState.getInitHeros();
-			ArrayList<Hero> fallenHeros = loadState.getDeadHeros();
-			Monster[] monsters = loadState.getMonsters();
-			Monster[] oldMonsters = loadState.getInitMonsters();
-			ArrayList<Monster> fallenMonsters = loadState.getDeadMonsters();
-			this.initializeGameLogic(heros, oldHeros, fallenHeros, monsters, oldMonsters, fallenMonsters);
+	public void load(){
+		try{
+			FileInputStream fin = new FileInputStream("save_data.txt");
+			ObjectInputStream objin = new ObjectInputStream(fin);
+			Object obj = objin.readObject();
+			
+			if(obj instanceof GameLogic){
+				GameLogic loadState = (GameLogic) obj;
+				Hero[] heros = loadState.getHeros();
+				Hero[] oldHeros = loadState.getInitHeros();
+				ArrayList<Hero> fallenHeros = loadState.getDeadHeros();
+				Monster[] monsters = loadState.getMonsters();
+				Monster[] oldMonsters = loadState.getInitMonsters();
+				ArrayList<Monster> fallenMonsters = loadState.getDeadMonsters();
+				this.initializeGameLogic(heros, oldHeros, fallenHeros, monsters, oldMonsters, fallenMonsters);
+			}
+		}catch(Exception e){
+			System.out.println("No game save found!");
+			System.out.println("Closing game!");
 		}
 	}
 	

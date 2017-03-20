@@ -3,7 +3,10 @@
  */
 
 package dungeon;
-public class RegularAttack implements AttackInterface
+
+import java.io.Serializable;
+
+public class RegularAttack implements AttackInterface, Serializable
 {
    public void Attack(DungeonCharacter attacker, DungeonCharacter defender)
    {

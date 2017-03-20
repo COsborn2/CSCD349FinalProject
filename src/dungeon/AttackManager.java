@@ -3,8 +3,9 @@
  */
 
 package dungeon;
+import java.io.Serializable;
 import java.util.*;
-public class AttackManager 
+public class AttackManager implements Serializable
 {	
 	private static HashMap<String, AttackInterface> attacks = new HashMap<String, AttackInterface>();
 	

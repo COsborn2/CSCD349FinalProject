@@ -4,8 +4,9 @@
 
 package dungeon;
 
+import java.io.Serializable;
 
-public class MonsterFactory {
+public class MonsterFactory implements Serializable{
 
 	/*String name, int hitPoints, int attackSpeed, 
 	 * double chanceToHit, double chanceToHeal, int damageMin, 

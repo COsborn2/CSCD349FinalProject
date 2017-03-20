@@ -4,7 +4,9 @@
 
 package dungeon;
 
-public class CapaulAttack implements AttackInterface {
+import java.io.Serializable;
+
+public class CapaulAttack implements AttackInterface, Serializable {
 
 	public final int MIN_ADD;
 	public final int MAX_ADD;

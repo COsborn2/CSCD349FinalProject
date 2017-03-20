@@ -4,7 +4,9 @@
 
 package dungeon;
 
-public class HealCharacter implements AttackInterface {
+import java.io.Serializable;
+
+public class HealCharacter implements AttackInterface, Serializable {
 
 	public final int MIN_ADD;
 	public final int MAX_ADD;
