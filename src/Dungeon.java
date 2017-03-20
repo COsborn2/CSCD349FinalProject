@@ -21,31 +21,33 @@ public class Dungeon
     public static void main(String[] args)
 	{
 		DungeonCharacterStore mStore = new DungeonCharacterStore();
-		
-		Keyboard kb = new Keyboard();
-		
-		System.out.print("Select the number of Heros (1-5):");
-		int numberHeros = Keyboard.readInt();
-		Hero[] heros = new Hero[numberHeros];
-		Monster[] monsters = new Monster[numberHeros];
-		GameLogic gl = new GameLogic(heros, monsters);
 
-		performBattle(gl, mStore);
-
-    }//end main method
-    
-    public static void performBattle(GameLogic gl, DungeonCharacterStore mStore){
-    	Hero[] heros = gl.getHeros();
-		Monster[] monsters = gl.getMonsters();
+		GameLogic gl = null;
+    	Hero[] theHeros;
+    	Monster[] theMonsters;
     	do
 		{
-			for(int i = 0; i < heros.length; i++){
-				heros[i] = chooseHero(mStore);
-				monsters[i] = mStore.generateMonster();
+    		System.out.print("Select the number of Heros (1-5):");
+    		int numberHeros = Keyboard.readInt();
+    		theHeros = new Hero[numberHeros];
+    		theMonsters = new Monster[numberHeros];
+    		
+			for(int i = 0; i < numberHeros; i++){
+				theHeros[i] = chooseHero(mStore);
+				theMonsters[i] = mStore.generateMonster();
+				gl = new GameLogic(theHeros, theMonsters);
 			}
 			battle(gl);
 
 		} while (playAgain());
+
+    }//end main method
+    
+    public static void importBattle(GameLogic gl){
+    	battle(gl);
+    	
+    	if(playAgain())
+    		main(null);
     }
 
 /*-------------------------------------------------------------------
@@ -63,7 +65,7 @@ this task
 						   "2. Sorceress\n" +
 						   "3. Thief \n" +
 						   "4. Capaulasourous \n" +
-						   "5. Captain Peters");
+						   "5. Pimp Daddy Peters");
 		choice = Keyboard.readInt();
 		theHero = mStore.spawnHero(choice);
 		
@@ -121,7 +123,6 @@ user has the option of quitting.
 			curHeros = gl.getHeros();
 			curMonsters = gl.getMonsters();
 			
-			System.out.println("Heros are attacking!");
 		    //heros go first
 			for(int i = 0; i < curHeros.length; i++){
 				if(gl.firstMonsterAlive() > -1){
@@ -142,7 +143,6 @@ user has the option of quitting.
 			curHeros = gl.getHeros();
 			curMonsters = gl.getMonsters();
 			
-			System.out.println("Monsters are attacking!");
 			for(int i = 0; i < curMonsters.length; i++){
 				if(gl.firstHeroAlive() > -1)
 					curMonsters[i].attack(curHeros[gl.firstHeroAlive()]);
