@@ -15,13 +15,13 @@ public class HealCharacter implements AttackInterface {
 	}
 	
 	@Override
-	public void Attack(DungeonCharacter attacker, DungeonCharacter defender) 
+	public void Attack(DungeonCharacter defender, DungeonCharacter attacker) 
 	{
 		int hPoints;
 
 		hPoints = (int)(Math.random() * (MAX_ADD - MIN_ADD + 1)) + MIN_ADD;
 		defender.addHitPoints(hPoints);
-		System.out.println(attacker.getName() + " added [" + hPoints + "] points to " + defender.getName() + ".\n"
+		System.out.println(defender.getName() + " added [" + hPoints + "] points to " + defender.getName() + ".\n"
 							+ "Total hit points remaining for "+ defender.getName() +" are: "
 							+ defender.getHitPoints());
 		 System.out.println();

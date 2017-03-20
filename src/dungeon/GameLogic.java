@@ -1,11 +1,15 @@
 package dungeon;
 
+import java.util.ArrayList;
+
 public class GameLogic {
 
 	private Hero[] theHeros;
 	private Hero[] initHeros;
+	private ArrayList<Hero> deadHeros;
 	private Monster[] theMonsters;
 	private Monster[] initMonsters;
+	private ArrayList<Monster> deadMonsters;
 	
 	public GameLogic(Hero[] theHeros, Monster[] theMonsters){
 		this.theHeros = theHeros;
@@ -121,5 +125,11 @@ public class GameLogic {
 				return i;
 		}
 		return -1;
+	}
+	
+	public void printInfoAboutHeros(){
+		for(int i = 0; i < this.theHeros.length; i++){
+			System.out.println(theHeros[i].getName() + " is still alive and has " + theHeros[i].getHitPoints());
+		}
 	}
 }
