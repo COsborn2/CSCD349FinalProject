@@ -2,7 +2,7 @@
  * Authored by: Cameron Osborn and Joseph Carlson
  */
 
-package dungeonGameFiles;
+package dungeon;
 public class RegularAttack implements AttackInterface
 {
    public void Attack(DungeonCharacter attacker, DungeonCharacter defender)

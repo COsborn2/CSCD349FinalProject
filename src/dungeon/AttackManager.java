@@ -2,7 +2,7 @@
  * Authored by: Cameron Osborn and Joseph Carlson
  */
 
-package dungeonGameFiles;
+package dungeon;
 import java.util.*;
 public class AttackManager 
 {	
@@ -13,9 +13,14 @@ public class AttackManager
 		attacks.put("regular", new RegularAttack());
 		attacks.put("suprise", new SupriseAttack());
 		attacks.put("crushing", new CrushingBlow());
-		attacks.put("heal", new HealCharacter());
-		attacks.put("capaul", new CapaulAttack());
 		attacks.put("peter", new PeterAttack());
+	}
+	
+	private static void createMap(String toAdd, int minAdd, int maxAdd){
+		if(toAdd.equals("heal"))
+			attacks.put("heal", new HealCharacter(minAdd, maxAdd));
+		else if(toAdd.equals("capaul"))
+			attacks.put("capaul", new CapaulAttack(minAdd, maxAdd));
 	}
 	
 	public static AttackInterface getRegular()
@@ -37,16 +42,20 @@ public class AttackManager
 			createMap();
 		return attacks.get("crushing");
 	}
-	public static AttackInterface getHeal()
+	public static AttackInterface getHeal(int minAdd, int maxAdd)
 	{
 		if (attacks.size() == 0)
 			createMap();
-		return attacks.get("Heal");
+		if(attacks.get("heal") == null)
+			createMap("heal", minAdd, maxAdd);
+		return attacks.get("heal");
 	}
-	public static AttackInterface getCapaul()
+	public static AttackInterface getCapaul(int minAdd, int maxAdd)
 	{
 		if (attacks.size() == 0)
 			createMap();
+		if(attacks.get("capaul") == null)
+			createMap("capaul", minAdd, maxAdd);
 		return attacks.get("capaul");
 	}
 	public static AttackInterface getPeter()

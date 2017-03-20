@@ -2,7 +2,7 @@
  * Authored by: Cameron Osborn and Joseph Carlson
  */
 
-package dungeonGameFiles;
+package dungeon;
 //Interface for attacks
 public interface AttackInterface
 {

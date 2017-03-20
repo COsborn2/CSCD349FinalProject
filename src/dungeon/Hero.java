@@ -2,7 +2,7 @@
  * Authored by: Cameron Osborn and Joseph Carlson
  */
 
-package dungeonGameFiles;
+package dungeon;
 
 
 
@@ -108,10 +108,9 @@ public void subtractHitPoints(int hitPoints)
 	}//end method
 
 /*-------------------------------------------------------
-battleChoices will be overridden in derived classes.  It computes the
+battleChoices computes the
 number of turns a hero will get per round based on the opponent that is
-being fought.  The number of turns is reported to the user.  This stuff might
-go better in another method that is invoked from this one...
+being fought.  The number of turns is reported to the user. 
 
 Receives: opponent
 Returns: nothing

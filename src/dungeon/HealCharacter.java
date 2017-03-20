@@ -2,12 +2,17 @@
  * Authored by: Cameron Osborn and Joseph Carlson
  */
 
-package dungeonGameFiles;
+package dungeon;
 
 public class HealCharacter implements AttackInterface {
 
-	public final int MIN_ADD = 25;
-	public final int MAX_ADD = 50;
+	public final int MIN_ADD;
+	public final int MAX_ADD;
+	
+	public HealCharacter(int minAdd, int maxAdd){
+		this.MIN_ADD = minAdd;
+		this.MAX_ADD = maxAdd;
+	}
 	
 	@Override
 	public void Attack(DungeonCharacter attacker, DungeonCharacter defender) 

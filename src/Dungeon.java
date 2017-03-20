@@ -2,41 +2,7 @@
  * Authored by: Cameron Osborn and Joseph Carlson
  */
 
-import dungeonGameFiles.*;
-
-/**
- * Title: Dungeon.java
- *
- * Description: Driver file for Heroes and Monsters project
- *
- * Copyright:    Copyright (c) 2001
- * Company: Code Dogs Inc.
- * I.M. Knurdy
- *
- * History:
- *  11/4/2001: Wrote program
- *    --created DungeonCharacter class
- *    --created Hero class
- *    --created Monster class
- *    --had Hero battle Monster
- *    --fixed attack quirks (dead monster can no longer attack)
- *    --made Hero and Monster abstract
- *    --created Warrior
- *    --created Ogre
- *    --made Warrior and Ogre battle
- *    --added battleChoices to Hero
- *    --added special skill to Warrior
- *    --made Warrior and Ogre battle
- *    --created Sorceress
- *    --created Thief
- *    --created Skeleton
- *    --created Gremlin
- *    --added game play features to Dungeon.java (this file)
- *  11/27/2001: Finished documenting program
- * version 1.0
- */
-
-
+import dungeon.*;
 
 /*
   This class is the driver file for the Heroes and Monsters project.  It will
@@ -51,31 +17,43 @@ import dungeonGameFiles.*;
 */
 public class Dungeon
 {
+	
     public static void main(String[] args)
 	{
-
-		Hero theHero;
-		Monster theMonster;
 		DungeonCharacterStore mStore = new DungeonCharacterStore();
 		
 		Keyboard kb = new Keyboard();
+		
+		System.out.print("Select the number of Heros (1-5):");
+		int numberHeros = Keyboard.readInt();
+		Hero[] heros = new Hero[numberHeros];
+		Monster[] monsters = new Monster[numberHeros];
+		GameLogic gl = new GameLogic(heros, monsters);
 
-		do
-		{
-		    theHero = chooseHero(kb, mStore);
-		    theMonster = mStore.generateMonster();
-			battle(theHero, theMonster);
-
-		} while (playAgain());
+		performBattle(gl, mStore);
 
     }//end main method
+    
+    public static void performBattle(GameLogic gl, DungeonCharacterStore mStore){
+    	Hero[] heros = gl.getHeros();
+		Monster[] monsters = gl.getMonsters();
+    	do
+		{
+			for(int i = 0; i < heros.length; i++){
+				heros[i] = chooseHero(mStore);
+				monsters[i] = mStore.generateMonster();
+			}
+			battle(gl);
+
+		} while (playAgain());
+    }
 
 /*-------------------------------------------------------------------
 chooseHero allows the user to select a hero, creates that hero, and
 returns it.  It utilizes a polymorphic reference (Hero) to accomplish
 this task
 ---------------------------------------------------------------------*/
-	public static Hero chooseHero(Keyboard kb, DungeonCharacterStore mStore)
+	public static Hero chooseHero(DungeonCharacterStore mStore)
 	{
 		int choice;
 		Hero theHero;
@@ -83,7 +61,9 @@ this task
 		System.out.println("Choose a hero:\n" +
 					       "1. Warrior\n" +
 						   "2. Sorceress\n" +
-						   "3. Thief");
+						   "3. Thief \n" +
+						   "4. Capaulasourous \n" +
+						   "5. Captain Peters");
 		choice = Keyboard.readInt();
 		theHero = mStore.spawnHero(choice);
 		
@@ -112,33 +92,92 @@ and a Monster to be passed in.  Battle occurs in rounds.  The Hero
 goes first, then the Monster.  At the conclusion of each round, the
 user has the option of quitting.
 ---------------------------------------------------------------------*/
-	public static void battle(Hero theHero, Monster theMonster)
+	public static void battle(GameLogic gl)
 	{
 		char pause = 'p';
-		System.out.println(theHero.getName() + " battles " +
-							theMonster.getName());
+		
+		Hero[] curHeros = gl.getHeros();
+		Monster[] curMonsters = gl.getMonsters();
+		
+		for(int i = 0; i < curHeros.length; i++){
+			System.out.println(curHeros[i].getName());
+		}
+		
+		System.out.println("are battling");
+		
+		for(int i = 0; i < curMonsters.length; i++){
+			System.out.println(curMonsters[i].getName());
+		}
 		System.out.println("---------------------------------------------");
 
 		//do battle
-		while (theHero.isAlive() && theMonster.isAlive() && pause != 'q')
+		while (gl.areAnyHerosAlive() && gl.areAnyMonstersAlive() && pause != 'q')
 		{
-		    //hero goes first
-			theHero.battleChoices(theMonster);
-
+			/*
+			 * The heros are allowed to attack first, and then the monsters, provided they are alive.
+			 * Iterate through the Hero array to attack the first Monster then
+			 * Iterate through the Monster array to attack the first Hero
+			 */
+			curHeros = gl.getHeros();
+			curMonsters = gl.getMonsters();
+			
+			System.out.println("Heros are attacking!");
+		    //heros go first
+			for(int i = 0; i < curHeros.length; i++){
+				if(gl.firstMonsterAlive() > -1){
+					System.out.println(curHeros[i].getName() + " is attacking!");
+					curHeros[i].battleChoices(curMonsters[gl.firstMonsterAlive()]);
+				}
+				else{
+					curHeros = gl.getHeros();
+					for(int j = 0; j < curHeros.length; j++){
+						System.out.println(curHeros[j].getName());
+					}
+					System.out.println("were victorious!");
+					return;
+				}
+			}//end Hero for loop
+			
 			//monster's turn (provided it's still alive!)
-			if (theMonster.isAlive())
-			    theMonster.attack(theHero);
+			curHeros = gl.getHeros();
+			curMonsters = gl.getMonsters();
+			
+			System.out.println("Monsters are attacking!");
+			for(int i = 0; i < curMonsters.length; i++){
+				if(gl.firstHeroAlive() > -1)
+					curMonsters[i].attack(curHeros[gl.firstHeroAlive()]);
+				else{
+					curMonsters = gl.getMonsters();
+					for(int j = 0; j < curMonsters.length; j++){
+						System.out.println(curMonsters[j].getName());
+					}
+					System.out.println("were victorious!");
+					return;
+				}
+			}//end Monster for loop
 
 			//let the player bail out if desired
 			System.out.print("\n-->q to quit, anything else to continue: ");
 			pause = Keyboard.readChar();
+			
 
 		}//end battle loop
 
-		if (!theMonster.isAlive())
-		    System.out.println(theHero.getName() + " was victorious!");
-		else if (!theHero.isAlive())
-			System.out.println(theHero.getName() + " was defeated :-(");
+		//Determine which heros and monsters are alive
+		if (gl.areAnyMonstersAlive()){
+		    Monster[] startingMonsters = gl.getInitMonsters();
+		    for(int i = 0; i < startingMonsters.length; i++){
+		    	System.out.println(startingMonsters[i].getName());
+		    }
+		    System.out.println("were victorious!");
+		}
+		else if (gl.areAnyHerosAlive()){
+			Hero[] startingHeros = gl.getInitHeros();
+		    for(int i = 0; i < startingHeros.length; i++){
+		    	System.out.println(startingHeros[i].getName());
+		    }
+		    System.out.println("were victorious!");
+		}
 		else//both are alive so user quit the game
 			System.out.println("Quitters never win ;-)");
 
