@@ -152,6 +152,7 @@ public class GameLogic {
 		if(this.deadHeros != null)
 			for(Hero RIP : this.deadHeros)
 			System.out.println(RIP.getName() + " was killed in battle!");
+		System.out.println();
 	}
 	
 	public void printInfoAboutMonsters(){
@@ -162,5 +163,6 @@ public class GameLogic {
 		if(this.deadMonsters != null)
 			for(Monster RIP : this.deadMonsters)
 			System.out.println(RIP.getName() + " was slain in battle!");
+		System.out.println();
 	}
 }
