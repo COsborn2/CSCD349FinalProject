@@ -1,3 +1,7 @@
+/*
+ * Authored by: Cameron Osborn and Joseph Carlson
+ */
+
 package dungeon;
 
 import java.io.*;
